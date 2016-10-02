@@ -31,8 +31,10 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'positions.apps.PositionsConfig',
     'conservations.apps.ConservationsConfig',
+    'descriptions.apps.DescriptionsConfig',
+    'positions.apps.PositionsConfig',
+    'typeeqs.apps.TypeeqsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
