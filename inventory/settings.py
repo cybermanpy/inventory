@@ -33,6 +33,9 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'conservations.apps.ConservationsConfig',
     'descriptions.apps.DescriptionsConfig',
+    'directions.apps.DirectionsConfig',
+    'docsform10.apps.Docsform10Config',
+    'owners.apps.OwnersConfig',
     'positions.apps.PositionsConfig',
     'typeeqs.apps.TypeeqsConfig',
     'django.contrib.admin',
