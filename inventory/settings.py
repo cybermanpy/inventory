@@ -31,12 +31,19 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'assets.apps.AssetsConfig',
+    'brands.apps.BrandsConfig',
     'conservations.apps.ConservationsConfig',
+    'departments.apps.DepartmentsConfig',
     'descriptions.apps.DescriptionsConfig',
     'directions.apps.DirectionsConfig',
     'docsform10.apps.Docsform10Config',
+    'funders.apps.FundersConfig',
     'owners.apps.OwnersConfig',
     'positions.apps.PositionsConfig',
+    'providers.apps.ProvidersConfig',
+    'eqmodels.apps.EqmodelsConfig',
+    'statuses.apps.StatusesConfig',
     'typeeqs.apps.TypeeqsConfig',
     'django.contrib.admin',
     'django.contrib.auth',

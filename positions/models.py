@@ -13,4 +13,4 @@ class Position(models.Model):
     class Meta:
         verbose_name = 'Position'
         verbose_name_plural = 'Positions'
-        ordering = ('id',)
+        ordering = ('id', )

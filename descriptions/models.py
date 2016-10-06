@@ -8,3 +8,11 @@ from typeeqs.models import TypeEq
 class Description(models.Model):
     description = models.CharField(max_length=140, blank=False, null=False)
     fktype = models.ForeignKey(TypeEq)
+
+    def __str__(self):
+        return self.description
+
+    class Meta:
+        verbose_name = 'Description'
+        verbose_name_plural = 'Descriptions'
+        ordering = ('id', )

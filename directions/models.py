@@ -15,3 +15,4 @@ class Direction(models.Model):
     class Meta:
         verbose_name = 'Direction'
         verbose_name_plural = 'Directions'
+        ordering = ('id', )
