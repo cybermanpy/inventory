@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% load widget_tweaks %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <table class="table table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>ID Traslado</th>
+                <th>ID Bien</th>
+                <th>Equipo</th>
+                <th>Modelo</th>
+                <th>Responsable</th>
+                <th>Ubicación</th>
+                <th>Fecha</th>
+                <th>Tipo Traslado</th>
+                <th>Último</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in listTransfer %}
+                <tr>
+                    <td> {{ item.id }} </td>
+                    <td><a href="{% url 'printTransfer' item.fkasset.id %}"> {{ item.fkasset.id }} </a></td>
+                    <td> {{ item.fkasset.fkdescription.description }} </td>
+                    <td> {{ item.fkasset.fkeqmodel }} </td>
+                    <td> {{ item.fkowner }} </td>
+                    <td> {{ item.fkdepartment }} </td>
+                    <td> {{ item.datetransfer }} </td>
+                    <td> {{ item.fktypetransfer }} </td>
+                    <td> {{ item.last }} </td>
+                </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+{% endblock %}

@@ -3,15 +3,20 @@
 <head>
     {% load staticfiles %}
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=divice-width, initial-scale=1, maximum-scale=1">
+    <!-- <meta name="viewport" content="width=divice-width, initial-scale=1, maximum-scale=1"> -->
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <script src="{% static 'js/canvas.js' %}"></script>
     <title> {% block title %}  {% endblock %} </title>
 </head>
 <body>
     <section class="container">
-        <header>
-            <div class="page-header">
+        <header class="flex-container">
+            <div class="flex-item1">
+                <canvas width="261" height="120" id="dibujito"></canvas>
+                <script>begin();</script>  
+            </div>
+            <div class="flex-item2">
                 <h4> {{ title|upper }} </h4>
             </div>
         </header>

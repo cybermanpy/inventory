@@ -1,0 +1,134 @@
+{% extends 'layout.html' %}
+{% load widget_tweaks %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <table class="table table-bordered">
+        {% for item in listTransfer %}
+            <tr>
+                <th>NRO. DE MOVIMIENTO:</th>
+                <td> {{ item.id }} </td>
+                <th>NRO. DE BIEN: </th>
+                <td> {{ item.fkasset.id }} </td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+                <td>Marca:</td>
+                <td> {{ item.fkasset.fkeqmodel.fkbrand }} </td>
+                <td>Modelo:</td>
+                <td> {{ item.fkasset.fkeqmodel }} </td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+                <td>Nro. Serie:</td>
+                <td> {{ item.fkasset.serial }} </td>
+                <td>Código Patrimonial:</td>
+                <td> {{ item.fkasset.codpat }} </td>
+            </tr>
+            <tr>
+            </tr>
+            {% if item.fkasset.fkdescription.description == 'CPU' %}
+                <tr>
+                    <th colspan="4">CARACTERISTICAS: {{ item.fkasset.fkdescription }}</th>
+                </tr>
+            {% endif %}
+            {% for citem in listDetail %}
+                <tr>
+                    {% if  citem.fkasset.fkdescription.description == 'CPU' %}
+                        <td colspan="2"> {{ citem.fkfeature }} </td>
+                        <td colspan="2"> {{ citem.details }} </td>
+                    {% elif citem.fkasset.fkdescription.description == 'Mouse' %}
+                        <tr>
+                            <th colspan="4">CARACTERISTICAS:  {{ citem.fkasset.fkdescription }}  </th>
+                        </tr>
+                        <tr>
+                            <td>Modelo: {{ citem.fkasset.fkeqmodel }} </td>
+                            <td> {{ citem.fkfeature }} {{ citem.details }} </td>
+                            <td>Nro. Serial: </td>
+                            <td> {{ citem.fkasset.serial }} </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <th colspan="4">CARACTERISTICAS:  {{ citem.fkasset.fkdescription }} </th>
+                        </tr>
+                        <tr>
+                            <td>Modelo: {{ citem.fkasset.fkeqmodel }} </td>
+                            <td> {{ citem.fkfeature }} {{ citem.details }} </td>
+                            <td>Nro. Serial: </td>
+                            <td> {{ citem.fkasset.serial }} </td>
+                        </tr>
+                        <tr>
+                        </tr>
+                        <tr>
+                            <td>Código Patrimonial: </td>
+                            <td> {{ citem.fkasset.codpat }} </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            <tr>
+                <td>Financiador:</td>
+                <td> {{ item.fkasset.fkfunder }} </td>
+                <td>Proveído por:</td>
+                <td> {{ item.fkasset.fkprovider }} </td>
+            </tr>
+            <tr>
+            </tr>
+             <tr>
+                <td>Tipo de Transferencia: </td>
+                <td> {{ item.fktypetransfer }} </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="4">Observación: El receptor del equipo es responsable de la buena manutención del mismo y deberá informar por escrito cualquier anormalidad del equipo entregado. La instalación y configuración de los equipos queda a cargo del Departamento de Tecnología de la Información y Comunicación de la ANEAES</td>
+            </tr>
+            <tr>
+                <th colspan="4">ENTREGADO POR:</th>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td>Fecha: </td>
+                <td> {{ item.datetransfer }} </td>
+            </tr>
+             <tr>
+                <th colspan="4">RECIBIDO POR:</th>
+            </tr>
+            <tr>
+                <td colspan="2"> {{ item.fkowner }} </td>
+                <td>Fecha: </td>
+                <td> {{ item.datetransfer }} </td>
+            </tr>
+             <tr>
+                <td colspan="2"> Ubicación: </td>
+                <td colspan="2"> {{ item.fkdepartment.fkdirection }} - {{ item.fkdepartment }}</td>
+            </tr>
+            <tr>
+                <td>Firma: </td>
+                <td></td>
+                <td>Aclaración de firma: </td>
+                <td>{{ item.fkowner }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+<!-- <table class="table table-bordered">
+    {% for i in listAsset %}
+        <tr>
+            <td> {# {i.fkdescription} #} </td>
+            {# % for it in i.features.all % #}
+                <td> {{ it.id }} </td>
+                <td> {{ it }} </td>
+            {# % endfor % #} 
+            <td>Nro. Serie: {# { i.serial } #} </td>
+        </tr>
+    {% endfor %}
+</table> -->
