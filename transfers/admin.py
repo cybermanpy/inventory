@@ -5,4 +5,4 @@ from .models import Transfer
 @admin.register(Transfer)
 class AdminTransfer(admin.ModelAdmin):
     list_display = ('id', 'fkasset', 'reason', 'fkowner', 'fkdepartment', 'datetransfer', 'fktypetransfer', 'last', )
-    list_filer = ('fkasset', 'fkdepartment', 'fktypetransfer', )
+    list_filter = ('fkasset', 'fkdepartment', 'fktypetransfer', )

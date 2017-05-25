@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'docsform10.apps.Docsform10Config',
     'funders.apps.FundersConfig',
     'features.apps.FeaturesConfig',
+    'loans.apps.LoansConfig',
     'owners.apps.OwnersConfig',
     'positions.apps.PositionsConfig',
     'providers.apps.ProvidersConfig',
@@ -100,7 +101,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'inventory',
         'USER': 'postgres',
-        'PASSWORD': '123456',
+        'PASSWORD': 'Aneaes*_',
         'HOST': '127.0.0.1',
         'PORT': '5432'
     }

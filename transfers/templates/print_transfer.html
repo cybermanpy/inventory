@@ -24,22 +24,24 @@
             </tr>
             <tr>
             </tr>
+            {% if item.fkasset.fkdescription.description == 'CPU' or item.fkasset.fkdescription.description == 'Laptop' %}
+                <tr>
+                    <td>Nro. Serie:</td>
+                    <td> {{ item.fkasset.serial }} </td>
+                    <td>Código Patrimonial:</td>
+                    <td> {{ item.fkasset.codpat }} </td>
+                </tr>
+            {% endif %}
             <tr>
-                <td>Nro. Serie:</td>
-                <td> {{ item.fkasset.serial }} </td>
-                <td>Código Patrimonial:</td>
-                <td> {{ item.fkasset.codpat }} </td>
             </tr>
-            <tr>
-            </tr>
-            {% if item.fkasset.fkdescription.description == 'CPU' %}
+            {% if item.fkasset.fkdescription.description == 'CPU' or item.fkasset.fkdescription.description == 'Laptop' %}
                 <tr>
                     <th colspan="4">CARACTERISTICAS: {{ item.fkasset.fkdescription }}</th>
                 </tr>
             {% endif %}
             {% for citem in listDetail %}
                 <tr>
-                    {% if  citem.fkasset.fkdescription.description == 'CPU' %}
+                    {% if  citem.fkasset.fkdescription.description == 'CPU' or citem.fkasset.fkdescription.description == 'Laptop' %}
                         <td colspan="2"> {{ citem.fkfeature }} </td>
                         <td colspan="2"> {{ citem.details }} </td>
                     {% elif citem.fkasset.fkdescription.description == 'Mouse' %}
@@ -108,7 +110,7 @@
             </tr>
              <tr>
                 <td colspan="2"> Ubicación: </td>
-                <td colspan="2"> {{ item.fkdepartment.fkdirection }} - {{ item.fkdepartment }}</td>
+                <td colspan="2"> {{ item.fkdepartment.fkdirection }} - {{ item.fkdepartment.depname }}</td>
             </tr>
             <tr>
                 <td>Firma: </td>

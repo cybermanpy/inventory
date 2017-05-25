@@ -11,7 +11,7 @@ class Department(models.Model):
     fkdirection = models.ForeignKey(Direction)
 
     def __str__(self):
-        return self.depname
+        return ("%s - %s") %(self.depname, self.fkdirection)
 
     class Meta:
         verbose_name = 'Department'

@@ -33,3 +33,4 @@ def printTransfer(request, pkasset):
 
     # listSon = DetailFeature.objects.filter(fkasset__id=1)
     # listAsset = Asset.objects.exclude(fkdescription__description="CPU").filter(assetfather=1)
+
