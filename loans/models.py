@@ -18,7 +18,7 @@ class Lend(models.Model):
     formlend = models.FileField(upload_to='loans/%Y/%m/%d/', blank=True, null=True)
     
     def __str__(self):
-        return self.reason
+        return self.fkowner.fullname
 
     class Meta:
         verbose_name = 'Lend'
